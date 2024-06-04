@@ -1,0 +1,31 @@
+.header {
+    width: 100vw;
+    height: 5em;
+    background-color: #FFD37D;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.valores-nutricionales {
+    color: #C58200;
+    grid-column: 1;
+    margin-left: 2em;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    font-size: larger;
+}
+
+.valores-nutricionales p {
+    margin: 0;
+}
+
+h1 {
+    grid-column: 2;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 400;
+    font-style: normal;
+}

@@ -1,0 +1,39 @@
+.sub-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 1em;
+}
+
+app-buscador {
+    grid-column: 2;
+    justify-self: center;
+    align-self: center;
+}
+
+#boton-mis-recetas {
+    grid-column: 3;
+    justify-self: end;
+    align-self: center;
+    padding-right: 3em;
+
+    font-size: x-large;
+    text-decoration: none;
+    color: black;
+}
+
+.grid-recetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+    gap: 1em;
+    row-gap: 2em;
+    padding-top: 1em;
+    padding-bottom: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
+
+    overflow: hidden;
+}
+
+app-card-receta {
+    justify-self: center;
+}

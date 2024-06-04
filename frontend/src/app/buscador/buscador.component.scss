@@ -1,0 +1,28 @@
+.cuadro-busqueda {
+    background-color: #F8F8F8;
+    border-radius: 11px;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    width: 40em;
+    height: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #8E8E8E;
+}
+
+input {
+    border: none;
+    background-color: #f8f8f800;
+    width: 100%;
+    height: 100%;
+    font-size: medium;
+    color: #8E8E8E;
+}
+
+input:focus {
+    outline: none;
+}
