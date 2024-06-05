@@ -1,0 +1,27 @@
+# Directorios de dependencias y build de Angular
+/node_modules
+/dist
+
+# Directorio de dependencias de Spring Boot
+/target
+/build
+
+# Archivos de configuración local de Angular y Spring Boot
+/angular.json
+/package-lock.json
+/tsconfig.json
+/.classpath
+/.project
+/.settings
+/.springBeans
+/.factorypath
+
+# Archivos de configuración específicos de IDE
+/.vscode
+
+# Archivo de configuración de Docker Compose
+docker-compose.override.yml
+
+# Otros archivos generados de variables de entorno
+.env
+database
