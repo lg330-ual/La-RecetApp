@@ -1,7 +1,6 @@
-version: '3.8'
-
 services:
   backend:
+    container_name: backend
     build: backend
     depends_on:
       - db
@@ -9,11 +8,10 @@ services:
       - 8080:8080
 
   db:
+    container_name: db
     build: 
       context: .
       dockerfile: DB_Dockerfile
     volumes:
       - ./database:/var/lib/postgresql/data
-
-volumes:
-  pgdata:
+      

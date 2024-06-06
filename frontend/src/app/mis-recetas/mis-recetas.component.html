@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="mis-recetas-contenido">
+    <div class="mis-recetas-sub-header">
+        <h1>Mis Recetas</h1>
+        <app-buscador></app-buscador>
+        <a id="boton-crear-receta" href="">Crear Receta</a>
+    </div>
+
+    <div class="contenedor-recetas-creadas">
+        <h2>Recetas creadas</h2>
+
+        <div class="grid-recetas">
+        </div>
+    </div>
+
+
+    <div class="contenedor-recetas-guardadas">
+        <h2>Recetas guardadas</h2>
+
+        <div class="grid-recetas">
+            <app-card-receta *ngFor="let receta of recetasGuardadas" [receta]="receta"></app-card-receta>
+        </div>
+    </div>
+
+</div>

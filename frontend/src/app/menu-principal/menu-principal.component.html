@@ -1,15 +1,12 @@
 <app-header></app-header>
 <div class="sub-header">
+    
     <app-buscador></app-buscador>
-    <a id="boton-mis-recetas" href="">Mis Recetas</a>
+    <a id="boton-mis-recetas" routerLink="/mis-recetas" >Mis Recetas</a>
 </div>
 
 <div class="grid-recetas">
-    <app-card-receta></app-card-receta>
-    <app-card-receta></app-card-receta>
-    <app-card-receta></app-card-receta>
-    <app-card-receta></app-card-receta>
-    <app-card-receta></app-card-receta>
+    <app-card-receta *ngFor="let recetaLista of listaRecetasRandom" [receta]="recetaLista"></app-card-receta>
 </div>
 
 

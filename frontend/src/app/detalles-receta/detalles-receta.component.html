@@ -1,0 +1,50 @@
+<div class="contenedor-detalles-receta">
+
+    <div class="contenedor-imagen-ingredientes">
+        <img src="{{receta?.imagen}}" alt="">
+        <div class="contenedor-ingredientes">
+            <h2>Ingredientes</h2>
+            <ul class="lista">
+                <li *ngFor="let ingrediente of receta?.ingredientes | keyvalue">
+                    {{ingrediente.key}} : {{ingrediente.value}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="seccion-inferior">
+
+        <div class="contenedor-nombre-info-boton">
+            <div class="div-nombre-info">
+                <h1>{{receta?.nombre}}</h1>
+
+                <div class="categoria-area">
+                    <div class="info">
+                        <p class="label">Categoria</p>
+                        <p id="categoria-value">{{receta?.categoria}}</p>
+                    </div>
+
+                    <div class="info">
+                        <p class="label">Area</p>
+                        <p id="area-value">{{receta?.area}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="div-boton-anadir-a-mis-recetas" *ngIf="!receta?.guardada" (click)="guardarReceta()">
+                <i class="fa-solid fa-circle-plus fa-lg"></i>
+                <p>Añadir a Mis Recetas</p>
+            </div>
+
+            <div class="div-boton-quitar-receta-guardada" *ngIf="receta?.guardada" (click)="quitarRecetaGuardada()">
+                <i class="fa-solid fa-circle-minus fa-lg"></i>
+                <p>Quitar de Mis Recetas</p>
+            </div>
+        </div>
+
+        <h2>Modo de preparación</h2>
+        <p id="preparacion">{{receta?.preparacion}}</p>
+    </div>
+
+</div>

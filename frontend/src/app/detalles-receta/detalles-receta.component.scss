@@ -1,0 +1,152 @@
+.contenedor-detalles-receta {
+    width: 70vw;
+    height: 80vh;
+
+    background-color: white;
+
+}
+
+.contenedor-imagen-ingredientes {
+    display: flex;
+    min-height: 60vh;
+}
+
+.contenedor-imagen-ingredientes img {
+    width: 65%;
+    height: 60vh;
+    object-fit: cover;
+}
+
+.contenedor-ingredientes {
+    padding-left: 2em;
+    font-size: larger;
+}
+
+.contenedor-ingredientes h2 {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+
+.contenedor-detalles-receta::-webkit-scrollbar {
+    width: 20px;
+}
+
+.contenedor-detalles-receta::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.contenedor-detalles-receta::-webkit-scrollbar-thumb {
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.seccion-inferior {
+    padding-left: 2em;
+    padding-right: 4em;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+
+
+.contenedor-nombre-info-boton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-nombre-info {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-nombre-info h1 {
+    margin: 0;
+    font-size: xx-large;
+}
+
+.categoria-area {
+    display: flex;
+    justify-content: space-evenly;
+    
+    width: 30%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info p {
+    margin: 0;
+}
+
+.label {
+    font-size: medium;
+    color: #C6C6C6;
+}
+
+#categoria-value {
+    font-size: 20px;
+    color: black;
+}
+
+#area-value {
+    font-size: 20px;
+    color: #C58200;
+}
+
+
+.div-boton-anadir-a-mis-recetas {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1em;
+
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.div-boton-anadir-a-mis-recetas:hover {
+    color: #C58200;
+}
+
+.div-boton-anadir-a-mis-recetas p {
+    margin: 0;
+    font-size: x-large;
+}
+
+.div-boton-quitar-receta-guardada {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1em;
+
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.div-boton-quitar-receta-guardada:hover {
+    color: #E2A8A8;
+}
+
+.div-boton-quitar-receta-guardada p {
+    margin: 0;
+    font-size: x-large;
+}
+
+
+.seccion-inferior h2 {
+    color: #444444;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+#preparacion {
+    font-size: large;
+}

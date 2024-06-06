@@ -1,8 +1,12 @@
+
+# Base de datos
 FROM postgres:latest
 
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=postgres
-ENV POSTGRES_DB=postgres
+ENV POSTGRES_DB=larecetapp-db
+# ENV POSTGRES_HOST_AUTH_METHOD=scram-sha-256
+# ENV POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
 
 EXPOSE 5432
 

@@ -9,7 +9,6 @@ p {
     border-radius: 11px;
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 20px 2px;
-    cursor: pointer;
     transition: 0.2s;
 }
 
@@ -30,6 +29,7 @@ img {
     max-height: 77%;
     object-fit: cover;
     border-radius: 11px 11px 0 0;
+    cursor: pointer;
 }
 
 .info-receta {
@@ -56,12 +56,15 @@ img {
     display: flex;
     flex-direction: column;
     align-items: end;
-    justify-content: space-around;
+    justify-content: start;
+    gap: 1em;
+    padding-top: 0.2em;
     color: #C58200;
 }
 
 .area-guardar-receta i {
     color: rgb(65, 65, 65);
+    cursor: pointer;
 }
 
 .area-guardar-receta i:hover {
