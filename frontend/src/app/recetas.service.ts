@@ -52,8 +52,8 @@ export class RecetasService {
   guardarReceta(receta: Receta): Observable<any> {
     const url = `${this.urlBaseDatos}/users/1`;
     const body: Receta = receta;
-
-    return this.http.put(url, body, this.httpOptions).pipe(
+    body.guardada = true;
+    return this.http.post(url, body, this.httpOptions).pipe(
       catchError(this.handleError<any>('guardarReceta'))
     )
   }
@@ -73,6 +73,14 @@ export class RecetasService {
     return this.http.put(url, body, this.httpOptions).pipe(
       catchError(this.handleError<any>('quitarRecetaGuardada'))
     )
+  }
+
+  crearReceta(receta: Receta): Observable<any> {
+    const url = `${this.urlBaseDatos}/users/1/recetas-creadas`;
+    const body: Receta = receta;
+    return this.http.post<any>(url, body, this.httpOptions).pipe(
+      catchError(this.handleError<any>('crearReceta'))
+    );
   }
 
 

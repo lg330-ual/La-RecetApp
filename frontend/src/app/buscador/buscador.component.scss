@@ -12,6 +12,12 @@
     justify-content: space-between;
 
     color: #8E8E8E;
+    transition: 0.2s;
+}
+
+.cuadro-busqueda:focus-within {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transform: scale(1.1);
 }
 
 input {

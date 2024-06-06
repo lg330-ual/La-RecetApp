@@ -4,9 +4,10 @@ import { BuscadorComponent } from '../buscador/buscador.component';
 import { RecetasService } from '../recetas.service';
 import { Receta } from '../receta';
 import { CardRecetaComponent } from '../card-receta/card-receta.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopupsService } from '../popups.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-mis-recetas',
@@ -18,7 +19,9 @@ import { PopupsService } from '../popups.service';
     BuscadorComponent,
     CardRecetaComponent,
     NgFor,
+    NgIf,
     MatDialogModule,
+    RouterModule
   ],
 })
 export class MisRecetasComponent {

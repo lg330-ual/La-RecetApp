@@ -1,15 +1,18 @@
 package larecetappcore.larecetapp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import larecetappcore.larecetapp.repository.RecetasRepository;
@@ -42,10 +45,12 @@ public class LaRecetAppController {
         return ResponseEntity.ok(userRepository.findById(id).get());
     }
     
-    @PutMapping("/users/{id}")
+    @PostMapping("/users/{id}")
     public ResponseEntity<?> saveRecipeForUser(@PathVariable Long id, @RequestBody Receta receta) {
         User usuario = userRepository.findById(id).get();
         receta.setUser(usuario);
+        recetasRepository.save(receta);
+
         usuario.getRecetasGuardadas().add(receta);
         userRepository.save(usuario);
         return ResponseEntity.ok().build();
@@ -61,6 +66,22 @@ public class LaRecetAppController {
 
         usuario.getRecetasGuardadas().remove(indice);
         userRepository.save(usuario);
+        recetasRepository.delete(recetaAEliminar);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/users/{id}/recetas-creadas")
+    public ResponseEntity<Receta> crearReceta(@PathVariable Long id, @RequestBody Receta receta) {
+        User usuario = userRepository.findById(id).get();
+        //receta.setUserC(usuario);
+        usuario.getRecetasCreadas().add(receta);
+        
+        return ResponseEntity.ok(recetasRepository.save(receta));
+    }
+
+    @DeleteMapping("/recetas/all")
+    public ResponseEntity<?> deleteAllRecipes() {
+        recetasRepository.deleteAll();
         return ResponseEntity.ok().build();
     }
 }

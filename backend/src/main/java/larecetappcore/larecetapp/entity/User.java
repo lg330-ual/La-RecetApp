@@ -10,6 +10,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -25,6 +28,10 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Receta> recetasGuardadas = new ArrayList<Receta>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_recetas", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "receta_id"))
+    private List<Receta> recetasCreadas = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -44,5 +51,13 @@ public class User {
 
     public void setRecetasGuardadas(List<Receta> recetasGuardadas) {
         this.recetasGuardadas = recetasGuardadas;
+    }
+
+    public List<Receta> getRecetasCreadas() {
+        return this.recetasCreadas;
+    }
+
+    public void setRecetasCreadas(List<Receta> recetasCreadas) {
+        this.recetasCreadas = recetasCreadas;
     }
 }

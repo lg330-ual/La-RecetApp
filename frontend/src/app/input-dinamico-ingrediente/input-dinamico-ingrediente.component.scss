@@ -1,0 +1,72 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+}
+
+input[type="text"] {
+    font-size: large;
+    font-family: inherit;
+
+    padding: 0.4em;
+    margin-top: 0.4em;
+
+    border-radius: 11px;
+    border: 1px solid #d3d3d3;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #ffe7b8;
+    border-width: 2px;
+}
+
+label {
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+    font-size: 20px;
+}
+
+input[type="file"] {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.ingrediente-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.ingredientes {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cantidades {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mas {
+    cursor: pointer;
+    transition: 0.07s;
+}
+
+.mas:hover {
+    color: #C58200;
+}
+
+.menos {
+    cursor: pointer;
+    transition: 0.07s;
+    color: #c6c6c6;
+}
+
+.menos:hover {
+    color: #E2A8A8;
+}

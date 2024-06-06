@@ -9,5 +9,7 @@ import larecetappcore.larecetapp.entity.Receta;
 @RepositoryRestResource
 @CrossOrigin(originPatterns = "*", allowCredentials = "true", allowedHeaders = "*")
 public interface RecetasRepository extends CrudRepository<Receta, Long> {
+
+    void saveAndFlush(Receta receta);
     
 }

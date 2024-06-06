@@ -4,12 +4,12 @@
     <div class="mis-recetas-sub-header">
         <h1>Mis Recetas</h1>
         <app-buscador></app-buscador>
-        <a id="boton-crear-receta" href="">Crear Receta</a>
+        <a id="boton-crear-receta" routerLink="/crear-receta">Crear Receta</a>
     </div>
 
     <div class="contenedor-recetas-creadas">
         <h2>Recetas creadas</h2>
-
+        <p id="mensaje-crear-recetas" *ngIf="recetasCreadas.length == 0">¡Crea tu primera receta!</p>
         <div class="grid-recetas">
         </div>
     </div>
@@ -17,6 +17,7 @@
 
     <div class="contenedor-recetas-guardadas">
         <h2>Recetas guardadas</h2>
+        <p id="mensaje-no-recetas" *ngIf="recetasGuardadas.length == 0">Empieza a explorar y guardar nuevas recetas</p>
 
         <div class="grid-recetas">
             <app-card-receta *ngFor="let receta of recetasGuardadas" [receta]="receta"></app-card-receta>

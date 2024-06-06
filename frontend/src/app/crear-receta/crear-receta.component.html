@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<div class="contenedor-crear-receta">
+    <h1>Crear receta</h1>
+
+    <form #formularioPrincipal="ngForm" class="contenedor-formulario" (ngSubmit)="onSubmit(formularioPrincipal)">
+
+        <div class="contenedor-imagen">
+            <img src="https://via.placeholder.com/150" alt="">
+            <input type="file" name="imagen" id="imagen">
+        </div>
+
+        <div class="contenedor-info">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="categoria">Categoria</label>
+            <input type="text" name="categoria" id="categoria">
+
+            <label for="area">Area</label>
+            <input type="text" name="area" id="area">
+        </div>
+
+        <!-- <div class="contenedor-ingredientes">
+            <div class="ingrediente-cantidad">
+                <div class="ingredientes">
+                    <label for="ingrediente">Ingrediente</label>
+                    <input type="text" name="ingrediente" id="ingrediente">
+                </div>
+                <div class="cantidades">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="text" name="cantidad" id="cantidad">
+                </div>
+                
+            </div>
+            
+        </div> -->
+
+        <app-input-dinamico-ingrediente #formularioIngredientes class="contenedor-ingredientes"></app-input-dinamico-ingrediente>
+
+        <div class="contenedor-preparacion">
+            <label for="preparacion">Modo de preparación</label>
+            <textarea name="preparacion" id="preparacion" rows="50"></textarea>
+            <div>
+                <input type="submit" value="Crear receta">
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,17 @@
+<form #recetaForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="contenedor-ingredientes">
+        <div *ngFor="let ingrediente of rec.ingredientes; let i = index" class="ingrediente-cantidad">
+            <div class="ingredientes">
+                <label for="ingrediente" *ngIf="i===0">Ingrediente</label>
+                <input type="text" name="ingrediente" [(ngModel)]="ingrediente.ingrediente" required>
+            </div>
+            <div class="cantidades">
+                <label for="cantidad" *ngIf="i===0">Cantidad</label>
+                <input type="text" name="cantidad" [(ngModel)]="ingrediente.cantidad" required>
+            </div>
+            <i class="fa-solid fa-circle-minus fa-lg menos" (click)="removeIngrediente(i)"></i>
+        </div>
+    </div>
+    <i class="fa-solid fa-circle-plus fa-xl mas" (click)="addIngrediente()"></i>
+    <!-- <button type="submit" [disabled]="!recetaForm.form.valid">Enviar</button> -->
+</form>

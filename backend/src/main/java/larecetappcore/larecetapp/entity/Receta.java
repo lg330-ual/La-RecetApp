@@ -1,7 +1,12 @@
 package larecetappcore.larecetapp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -10,6 +15,7 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -37,9 +43,18 @@ public class Receta {
     private Map<String, String> ingredientes;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnore
     private User user;
+
+    @ManyToMany(mappedBy = "recetasCreadas")
+    @Fetch(FetchMode.JOIN)
+    private List<User> users = new ArrayList<>();
+
+    /*@ManyToOne
+    @JoinColumn(name = "userC_id", nullable = true)
+    @JsonIgnore
+    private User userC;*/
 
 
     public Long getId() {
@@ -109,7 +124,15 @@ public class Receta {
     public void setUser(User user) {
         this.user = user;
     }
+/*
+    public User getUserC() {
+        return this.userC;
+    }
 
+    public void setUserC(User user) {
+        this.userC = user;
+    }
+*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
