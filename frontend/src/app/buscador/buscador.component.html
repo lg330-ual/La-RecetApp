@@ -1,5 +1,12 @@
 <div class="cuadro-busqueda">
-    <input type="text" placeholder="Buscar recetas...">
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" type="text" placeholder="Buscar recetas...">
     <i class="fa-solid fa-magnifying-glass buscador-icono"></i>
 </div>
-
+<!-- 
+<ul class="search-result">
+    <li *ngFor="let receta of recetas$ | async" >
+      <p>
+        {{receta.nombre}}
+      </p>
+    </li>
+  </ul> -->
