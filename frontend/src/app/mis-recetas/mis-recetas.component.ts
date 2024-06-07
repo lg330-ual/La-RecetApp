@@ -35,6 +35,7 @@ export class MisRecetasComponent {
 
   ngOnInit(): void {
     this.getRecetasGuardadas();
+    this.getRecetasCreadas();
 
     this.popupsService.popupClosed$.subscribe((result) =>
       this.getRecetasGuardadas()
@@ -45,6 +46,12 @@ export class MisRecetasComponent {
     this.recetasService
       .getRecetasGuardadas()
       .subscribe((recetas) => (this.recetasGuardadas = recetas));
+  }
+
+  getRecetasCreadas(): void {
+    this.recetasService.getRecetasCreadas().subscribe(
+      (recetas) => (this.recetasCreadas = recetas),
+    );
   }
 
   /*openPopUp(receta: Receta): void {

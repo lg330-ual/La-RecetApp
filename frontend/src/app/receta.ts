@@ -1,5 +1,5 @@
 export interface Receta {
-    id: number,
+    id: number | null,
     nombre: string,
     imagen: string,
     categoria: Categoria,

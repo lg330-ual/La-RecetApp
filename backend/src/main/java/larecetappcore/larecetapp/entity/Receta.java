@@ -13,6 +13,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
@@ -24,6 +26,7 @@ import jakarta.persistence.Table;
 public class Receta {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nombre;
@@ -43,12 +46,13 @@ public class Receta {
     private Map<String, String> ingredientes;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     @JsonIgnore
     private User user;
 
-    @ManyToMany(mappedBy = "recetasCreadas")
+    @ManyToMany(mappedBy = "recetasGuardadas")
     @Fetch(FetchMode.JOIN)
+    @JsonIgnore
     private List<User> users = new ArrayList<>();
 
     /*@ManyToOne
@@ -59,6 +63,10 @@ public class Receta {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -124,15 +132,15 @@ public class Receta {
     public void setUser(User user) {
         this.user = user;
     }
-/*
-    public User getUserC() {
-        return this.userC;
+
+    public List<User> getUsers() {
+        return this.users;
     }
 
-    public void setUserC(User user) {
-        this.userC = user;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
-*/
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

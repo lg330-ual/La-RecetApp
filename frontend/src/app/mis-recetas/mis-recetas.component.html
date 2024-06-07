@@ -11,6 +11,7 @@
         <h2>Recetas creadas</h2>
         <p id="mensaje-crear-recetas" *ngIf="recetasCreadas.length == 0">¡Crea tu primera receta!</p>
         <div class="grid-recetas">
+            <app-card-receta *ngFor="let receta of recetasCreadas" [receta]="receta"></app-card-receta>
         </div>
     </div>
 

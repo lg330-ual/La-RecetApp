@@ -48,9 +48,7 @@ public class LaRecetAppController {
     @PostMapping("/users/{id}")
     public ResponseEntity<?> saveRecipeForUser(@PathVariable Long id, @RequestBody Receta receta) {
         User usuario = userRepository.findById(id).get();
-        receta.setUser(usuario);
-        recetasRepository.save(receta);
-
+        receta.getUsers().add(usuario);
         usuario.getRecetasGuardadas().add(receta);
         userRepository.save(usuario);
         return ResponseEntity.ok().build();
@@ -73,14 +71,14 @@ public class LaRecetAppController {
     @PostMapping("/users/{id}/recetas-creadas")
     public ResponseEntity<Receta> crearReceta(@PathVariable Long id, @RequestBody Receta receta) {
         User usuario = userRepository.findById(id).get();
-        //receta.setUserC(usuario);
-        usuario.getRecetasCreadas().add(receta);
-        
-        return ResponseEntity.ok(recetasRepository.save(receta));
+        receta.setUser(usuario);
+        recetasRepository.save(receta);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/recetas/all")
     public ResponseEntity<?> deleteAllRecipes() {
+        userRepository.deleteAllReferencesToReceta();
         recetasRepository.deleteAll();
         return ResponseEntity.ok().build();
     }

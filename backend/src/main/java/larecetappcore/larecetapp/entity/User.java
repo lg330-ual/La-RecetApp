@@ -27,11 +27,11 @@ public class User {
     private String username;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Receta> recetasGuardadas = new ArrayList<Receta>();
+    private List<Receta> recetasCreadas = new ArrayList<Receta>();
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_recetas", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "receta_id"))
-    private List<Receta> recetasCreadas = new ArrayList<>();
+    private List<Receta> recetasGuardadas = new ArrayList<>();
 
     public Long getId() {
         return id;

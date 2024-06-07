@@ -75,12 +75,20 @@ export class RecetasService {
     )
   }
 
-  crearReceta(receta: Receta): Observable<any> {
+  crearReceta(receta: Receta): Observable<Receta> {
     const url = `${this.urlBaseDatos}/users/1/recetas-creadas`;
     const body: Receta = receta;
-    return this.http.post<any>(url, body, this.httpOptions).pipe(
-      catchError(this.handleError<any>('crearReceta'))
+    return this.http.post<Receta>(url, body, this.httpOptions).pipe(
+      catchError(this.handleError<Receta>('crearReceta'))
     );
+  }
+
+  getRecetasCreadas(): Observable<Receta[]> {
+    const url = `${this.urlBaseDatos}/users/1`;
+    return this.http.get<any>(url, this.httpOptions).pipe(
+      map(data => data.recetasCreadas),
+      catchError(this.handleError<any>('getRecetasCreadas'))
+    )
   }
 
 

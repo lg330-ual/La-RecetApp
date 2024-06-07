@@ -3,44 +3,46 @@
 <div class="contenedor-crear-receta">
     <h1>Crear receta</h1>
 
-    <form #formularioPrincipal="ngForm" class="contenedor-formulario" (ngSubmit)="onSubmit(formularioPrincipal)">
+    <form #formularioPrincipal="ngForm" class="contenedor-formulario" (ngSubmit)="onSubmit(formularioPrincipal)" novalidate>
 
         <div class="contenedor-imagen">
             <img src="https://via.placeholder.com/150" alt="">
-            <input type="file" name="imagen" id="imagen">
+            <input type="text" name="imagen" id="imagen" ngModel required>
+            <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['imagen']?.invalid">
+                <small>Imagen requerida</small>
+            </div>
         </div>
 
         <div class="contenedor-info">
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" ngModel required>
+            <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['nombre']?.invalid">
+                <small>El nombre es requerido.</small>
+            </div>
 
             <label for="categoria">Categoria</label>
-            <input type="text" name="categoria" id="categoria">
+            <input type="text" name="categoria" id="categoria" ngModel required>
+            <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['categoria']?.invalid">
+                <small>La categoria es requerida</small>
+            </div>
+
 
             <label for="area">Area</label>
-            <input type="text" name="area" id="area">
+            <input type="text" name="area" id="area" ngModel required>
+            <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['area']?.invalid">
+                <small>El area es requerida</small>
+            </div>
         </div>
 
-        <!-- <div class="contenedor-ingredientes">
-            <div class="ingrediente-cantidad">
-                <div class="ingredientes">
-                    <label for="ingrediente">Ingrediente</label>
-                    <input type="text" name="ingrediente" id="ingrediente">
-                </div>
-                <div class="cantidades">
-                    <label for="cantidad">Cantidad</label>
-                    <input type="text" name="cantidad" id="cantidad">
-                </div>
-                
-            </div>
-            
-        </div> -->
-
-        <app-input-dinamico-ingrediente #formularioIngredientes class="contenedor-ingredientes"></app-input-dinamico-ingrediente>
+        <app-input-dinamico-ingrediente (ingredientesCambio)="onCambioIngredientes($event)"  #formularioIngredientes class="contenedor-ingredientes"></app-input-dinamico-ingrediente>
 
         <div class="contenedor-preparacion">
             <label for="preparacion">Modo de preparación</label>
-            <textarea name="preparacion" id="preparacion" rows="50"></textarea>
+            <textarea name="preparacion" id="preparacion" rows="50" ngModel required></textarea>
+            <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['preparacion']?.invalid">
+                <small>El modo de preparación es requerido</small>
+            </div>
+
             <div>
                 <input type="submit" value="Crear receta">
             </div>
