@@ -8,6 +8,9 @@ import { catchError, map, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class RecetasService {
+
+  private recetaAEditar?: Receta;
+
   urlBaseDatos: string = 'http://localhost:8080';
 
   httpOptions = {
@@ -158,5 +161,14 @@ export class RecetasService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+
+  setRecetaAEditar(receta: Receta) {
+    this.recetaAEditar = receta;
+  }
+
+  getRecetaAEditar(): Receta | undefined {
+    return this.recetaAEditar;
   }
 }

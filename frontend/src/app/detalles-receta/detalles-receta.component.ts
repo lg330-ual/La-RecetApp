@@ -4,12 +4,13 @@ import { Receta } from '../receta';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { RecetasService } from '../recetas.service';
-import { PopupsService } from '../popups.service';
+import { Router, RouterModule } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-detalles-receta',
   standalone: true,
-  imports: [NgFor, CommonModule],
+  imports: [NgFor, CommonModule, RouterModule],
   templateUrl: './detalles-receta.component.html',
   styleUrl: './detalles-receta.component.scss',
 })
@@ -23,7 +24,7 @@ export class DetallesRecetaComponent {
     public dialogRef: MatDialogRef<DetallesRecetaComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private recetasService: RecetasService,
-    private popupsService: PopupsService
+    private router: Router
   ) {
     this.receta = data.receta;
     this.esCreada = data.esCreada;
@@ -49,6 +50,12 @@ export class DetallesRecetaComponent {
       this.recetasService.eliminarReceta(this.receta).subscribe();
       this.closeDialog();
     }
+  }
+
+  toEditarReceta() {
+    this.closeDialog();
+    this.recetasService.setRecetaAEditar(this.receta!);
+    this.router.navigate(['/editar-receta']);
   }
 
   closeDialog(): void {

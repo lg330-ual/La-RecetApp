@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { NgFor, NgIf } from '@angular/common';
 import { InputDinamicoIngredienteComponent } from '../input-dinamico-ingrediente/input-dinamico-ingrediente.component';
@@ -19,6 +19,10 @@ export class CrearRecetaComponent {
     @ViewChild('formularioIngredientes') formularioIngredientes!: NgForm;
     ingredientes: {ingrediente: string, cantidad: string}[] = [];
 
+    @Input()
+    recetaAEditar?: Receta;
+    imagenPlaceholder: string = (this.recetaAEditar == undefined) ? 'https://via.placeholder.com/150' : this.recetaAEditar.imagen;
+
     constructor(private recetasService: RecetasService, private router: Router) { }
 
     onCambioIngredientes(event: {ingrediente: string, cantidad: string}[]) {
@@ -33,7 +37,7 @@ export class CrearRecetaComponent {
         }
 
         let receta : Receta = {
-            id: null,
+            id: this.recetaAEditar?.id || null,
             nombre: formularioPrincipal.value.nombre,
             imagen: formularioPrincipal.value.imagen,
             categoria: formularioPrincipal.value.categoria,
@@ -62,5 +66,9 @@ export class CrearRecetaComponent {
                 console.log("Error al crear receta: ", error);
             }
         });
+    }
+
+    ngOnInit() {
+        this.recetaAEditar = this.recetasService.getRecetaAEditar();
     }
 }

@@ -43,7 +43,7 @@
             </div>
 
             <div class="div-modificaciones-receta-creada" *ngIf="esCreada">
-                <div class="div-editar">
+                <div class="div-editar" routerLink="/crear-receta" (click)="toEditarReceta()">
                     <i class="fa-solid fa-pen fa-lg"></i>
                     <p>Editar</p>
                 </div>
