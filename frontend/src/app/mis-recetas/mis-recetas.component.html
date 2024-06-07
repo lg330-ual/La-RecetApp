@@ -11,7 +11,7 @@
         <h2>Recetas creadas</h2>
         <p id="mensaje-crear-recetas" *ngIf="recetasCreadas.length == 0">¡Crea tu primera receta!</p>
         <div class="grid-recetas">
-            <app-card-receta *ngFor="let receta of recetasCreadas" [receta]="receta"></app-card-receta>
+            <app-card-receta *ngFor="let receta of recetasCreadas" [receta]="receta" [esCreada]="true"></app-card-receta>
         </div>
     </div>
 
@@ -21,7 +21,7 @@
         <p id="mensaje-no-recetas" *ngIf="recetasGuardadas.length == 0">Empieza a explorar y guardar nuevas recetas</p>
 
         <div class="grid-recetas">
-            <app-card-receta *ngFor="let receta of recetasGuardadas" [receta]="receta"></app-card-receta>
+            <app-card-receta *ngFor="let receta of recetasGuardadas" [receta]="receta" [esCreada]="false"></app-card-receta>
         </div>
     </div>
 

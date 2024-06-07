@@ -150,3 +150,40 @@
 #preparacion {
     font-size: large;
 }
+
+.div-modificaciones-receta-creada{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 2em;
+}
+
+.div-modificaciones-receta-creada div {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.div-modificaciones-receta-creada p {
+    margin: 0;
+    font-size: larger;
+}
+
+.div-editar {
+    cursor: pointer;
+    color: #c6c6c6;
+    transition: 0.1s;
+}
+
+.div-editar:hover {
+    color: #444444;
+}
+
+.div-eliminar {
+    cursor: pointer;
+    color: #E2A8A8;
+}
+
+.div-eliminar:hover {
+    color: #c67878;
+}

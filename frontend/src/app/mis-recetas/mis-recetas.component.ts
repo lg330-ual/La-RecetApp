@@ -37,9 +37,10 @@ export class MisRecetasComponent {
     this.getRecetasGuardadas();
     this.getRecetasCreadas();
 
-    this.popupsService.popupClosed$.subscribe((result) =>
-      this.getRecetasGuardadas()
-    );
+    this.popupsService.popupClosed$.subscribe((result) => {
+      this.getRecetasGuardadas();
+      this.getRecetasCreadas();
+    });
   }
 
   getRecetasGuardadas(): void {

@@ -15,6 +15,7 @@ import { PopupsService } from '../popups.service';
 })
 export class DetallesRecetaComponent {
   receta: Receta | undefined;
+  esCreada?: boolean;
 
   @Output() dialogClosed = new EventEmitter<any>();
 
@@ -25,6 +26,7 @@ export class DetallesRecetaComponent {
     private popupsService: PopupsService
   ) {
     this.receta = data.receta;
+    this.esCreada = data.esCreada;
   }
 
   guardarReceta(): void {
@@ -38,6 +40,13 @@ export class DetallesRecetaComponent {
     if (this.receta != undefined) {
       this.recetasService.quitarRecetaGuardada(this.receta).subscribe();
       this.receta.guardada = false;
+      this.closeDialog();
+    }
+  }
+
+  eliminarReceta(): void {
+    if (this.receta != undefined) {
+      this.recetasService.eliminarReceta(this.receta).subscribe();
       this.closeDialog();
     }
   }

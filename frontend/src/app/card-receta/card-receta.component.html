@@ -1,5 +1,5 @@
 <div class="card-receta-content">
-    <i class="fa-solid fa-bookmark fa-2xl bookmark" *ngIf="receta?.guardada"></i>
+    <i class="fa-solid fa-bookmark fa-2xl bookmark" *ngIf="receta?.guardada && !esCreada"></i>
     <img src="{{receta?.imagen}}" (click)="openPopUp()" alt="">
     <div class="info-receta">
         <div class="nombre-categoria">
@@ -9,7 +9,7 @@
 
         <div class="area-guardar-receta">
             <p id="area">{{receta?.area}}</p>
-            <i class="fa-solid fa-circle-plus fa-lg" *ngIf="!receta?.guardada" (click)="guardarReceta()"></i>
+            <i class="fa-solid fa-circle-plus fa-lg" *ngIf="!receta?.guardada && !esCreada" (click)="guardarReceta()"></i>
         </div>
     </div>
 </div>

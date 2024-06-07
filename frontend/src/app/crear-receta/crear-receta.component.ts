@@ -40,7 +40,7 @@ export class CrearRecetaComponent {
             area: formularioPrincipal.value.area,
             ingredientes: {},
             preparacion: formularioPrincipal.value.preparacion,
-            guardada: true
+            guardada: false
         }
 
         for (let ingrediente of this.ingredientes) {

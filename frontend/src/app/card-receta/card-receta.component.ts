@@ -17,6 +17,9 @@ export class CardRecetaComponent {
   @Input()
   receta?: Receta;
 
+  @Input()
+  esCreada?: boolean;
+
   constructor(
     private recetasService: RecetasService,
     private popupsService: PopupsService
@@ -36,7 +39,7 @@ export class CardRecetaComponent {
   }
 
   openPopUp(): void {
-    const dialogRef = this.popupsService.openPopUp(this.receta!);
+    const dialogRef = this.popupsService.openPopUp(this.receta!, this.esCreada!);
     dialogRef.afterClosed().subscribe();
   }
 }

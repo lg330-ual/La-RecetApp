@@ -76,6 +76,22 @@ public class LaRecetAppController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("/users/{id}/recetas-creadas/{recetaId}")
+    public ResponseEntity<?> eliminarReceta(@PathVariable Long id, @PathVariable Long recetaId) {
+        User usuario = userRepository.findById(id).get();
+
+        List<Receta> recetasCreadas = usuario.getRecetasCreadas();
+        Receta recetaAEliminar = recetasRepository.findById(recetaId).get();
+        int indice = recetasCreadas.indexOf(recetaAEliminar);
+
+        usuario.getRecetasCreadas().remove(indice);
+        userRepository.save(usuario);
+        recetasRepository.delete(recetaAEliminar);
+        return ResponseEntity.ok().build();
+    }
+
+
+
     @DeleteMapping("/recetas/all")
     public ResponseEntity<?> deleteAllRecipes() {
         userRepository.deleteAllReferencesToReceta();

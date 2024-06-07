@@ -13,9 +13,9 @@ export class PopupsService {
 
   constructor(private dialog: MatDialog) { }
 
-  openPopUp(receta: Receta) {
+  openPopUp(receta: Receta, esCreada: boolean) {
     const dialogRef = this.dialog.open(DetallesRecetaComponent, {
-      data: {receta}
+      data: {receta, esCreada}
     });
 
     dialogRef.afterClosed().subscribe(result => {

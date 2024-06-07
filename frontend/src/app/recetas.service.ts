@@ -83,6 +83,13 @@ export class RecetasService {
     );
   }
 
+  eliminarReceta(receta: Receta): Observable<any> {
+    const url = `${this.urlBaseDatos}/users/1/recetas-creadas/${receta.id}`;
+    return this.http.delete(url, this.httpOptions).pipe(
+      catchError(this.handleError<any>('quitarRecetaGuardada'))
+    )
+  }
+
   getRecetasCreadas(): Observable<Receta[]> {
     const url = `${this.urlBaseDatos}/users/1`;
     return this.http.get<any>(url, this.httpOptions).pipe(

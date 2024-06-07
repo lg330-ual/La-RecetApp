@@ -32,14 +32,26 @@
 
             </div>
 
-            <div class="div-boton-anadir-a-mis-recetas" *ngIf="!receta?.guardada" (click)="guardarReceta()">
+            <div class="div-boton-anadir-a-mis-recetas" *ngIf="!receta?.guardada && !esCreada" (click)="guardarReceta()">
                 <i class="fa-solid fa-circle-plus fa-lg"></i>
                 <p>Añadir a Mis Recetas</p>
             </div>
 
-            <div class="div-boton-quitar-receta-guardada" *ngIf="receta?.guardada" (click)="quitarRecetaGuardada()">
+            <div class="div-boton-quitar-receta-guardada" *ngIf="receta?.guardada && !esCreada" (click)="quitarRecetaGuardada()">
                 <i class="fa-solid fa-circle-minus fa-lg"></i>
                 <p>Quitar de Mis Recetas</p>
+            </div>
+
+            <div class="div-modificaciones-receta-creada" *ngIf="esCreada">
+                <div class="div-editar">
+                    <i class="fa-solid fa-pen fa-lg"></i>
+                    <p>Editar</p>
+                </div>
+
+                <div class="div-eliminar" (click)="eliminarReceta()">
+                    <i class="fa-solid fa-trash fa-lg"></i>
+                    <p>Eliminar receta</p>
+                </div>
             </div>
         </div>
 
