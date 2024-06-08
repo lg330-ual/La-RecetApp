@@ -19,9 +19,17 @@ export class CrearRecetaComponent {
     @ViewChild('formularioIngredientes') formularioIngredientes!: NgForm;
     ingredientes: {ingrediente: string, cantidad: string}[] = [];
 
-    @Input()
+    
     recetaAEditar?: Receta;
-    imagenPlaceholder: string = (this.recetaAEditar == undefined) ? 'https://via.placeholder.com/150' : this.recetaAEditar.imagen;
+
+    
+    imagenPlaceholder: string = 'https://via.placeholder.com/150';
+    imagenValue: string = '';
+    nombreValue: string = '';
+    categoriaValue: string = '';
+    areaValue: string = '';
+    preparacionValue: string = '';
+
 
     constructor(private recetasService: RecetasService, private router: Router) { }
 
@@ -37,7 +45,7 @@ export class CrearRecetaComponent {
         }
 
         let receta : Receta = {
-            id: this.recetaAEditar?.id || null,
+            id: this.recetaAEditar ? this.recetaAEditar.id : null,
             nombre: formularioPrincipal.value.nombre,
             imagen: formularioPrincipal.value.imagen,
             categoria: formularioPrincipal.value.categoria,
@@ -69,6 +77,19 @@ export class CrearRecetaComponent {
     }
 
     ngOnInit() {
+        this.getRecetaAEditar();
+    }
+
+    getRecetaAEditar() {
         this.recetaAEditar = this.recetasService.getRecetaAEditar();
+
+        if (this.recetaAEditar) {
+            this.imagenPlaceholder = this.recetaAEditar.imagen || 'https://via.placeholder.com/150';
+            this.imagenValue = this.recetaAEditar.imagen || '';
+            this.nombreValue = this.recetaAEditar.nombre || '';
+            this.categoriaValue = this.recetaAEditar.categoria || '';
+            this.areaValue = this.recetaAEditar.area || '';
+            this.preparacionValue = this.recetaAEditar.preparacion || '';
+        }
     }
 }

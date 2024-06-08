@@ -3,7 +3,7 @@
     <img src="{{receta?.imagen}}" (click)="openPopUp()" alt="">
     <div class="info-receta">
         <div class="nombre-categoria">
-            <p id="nombre">{{receta?.nombre}}</p>
+            <p id="nombre" (click)="openPopUp()">{{receta?.nombre}}</p>
             <p id="categoria">{{receta?.categoria}}</p>
         </div>
 

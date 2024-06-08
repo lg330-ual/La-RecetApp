@@ -55,7 +55,7 @@ export class MisRecetasComponent {
     );
   }
 
-  /*openPopUp(receta: Receta): void {
-    this.popupsService.openPopUp(receta);
-  }*/
+  editarRecetaToNull() {
+    this.recetasService.setRecetaAEditar(undefined);
+  }
 }

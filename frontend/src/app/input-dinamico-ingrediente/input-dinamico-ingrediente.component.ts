@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RecetasService } from '../recetas.service';
 
 @Component({
   selector: 'app-input-dinamico-ingrediente',
@@ -15,6 +16,8 @@ export class InputDinamicoIngredienteComponent {
 
   @Output() ingredientesCambio = new EventEmitter<{ingrediente: string, cantidad: string}[]>();
 
+  constructor(private recetasService: RecetasService) { }
+
   addIngrediente() {
     this.rec.ingredientes.push({ingrediente: '', cantidad: ''});
     this.emitirCambio();
@@ -27,5 +30,10 @@ export class InputDinamicoIngredienteComponent {
   
   emitirCambio() {
     this.ingredientesCambio.emit(this.rec.ingredientes);
+  }
+
+  // T-77 Implementar que al editar una receta, se muestren los ingredientes en el formulario
+  ngOnInit() {
+    
   }
 }

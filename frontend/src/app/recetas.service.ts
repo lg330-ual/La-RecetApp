@@ -164,11 +164,11 @@ export class RecetasService {
   }
 
 
-  setRecetaAEditar(receta: Receta) {
+  setRecetaAEditar(receta: Receta | undefined) {
     this.recetaAEditar = receta;
   }
 
-  getRecetaAEditar(): Receta | undefined {
+  getRecetaAEditar(): Receta | undefined{
     return this.recetaAEditar;
   }
 }

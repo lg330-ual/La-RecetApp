@@ -1,12 +1,13 @@
 <app-header></app-header>
 <div class="contenedor-crear-receta">
-    <h1>Crear receta</h1>
+    <h1 *ngIf="!recetaAEditar">Crear receta</h1>
+    <h1 *ngIf="recetaAEditar">Editar receta</h1>
 
     <form #formularioPrincipal="ngForm" class="contenedor-formulario" (ngSubmit)="onSubmit(formularioPrincipal)" novalidate>
 
         <div class="contenedor-imagen">
             <img src="{{imagenPlaceholder}}" alt="">
-            <input type="text" name="imagen" id="imagen" ngModel placeholder="{{recetaAEditar?.imagen}}">
+            <input type="text" name="imagen" id="imagen" [(ngModel)]="imagenValue">
             <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['imagen']?.invalid">
                 <small>Imagen requerida</small>
             </div>
@@ -14,20 +15,20 @@
 
         <div class="contenedor-info">
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" ngModel required placeholder="{{recetaAEditar?.nombre}}">
+            <input type="text" name="nombre" id="nombre" required [(ngModel)]="nombreValue">
             <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['nombre']?.invalid">
                 <small>El nombre es requerido.</small>
             </div>
 
             <label for="categoria">Categoria</label>
-            <input type="text" name="categoria" id="categoria" ngModel required placeholder="{{recetaAEditar?.categoria}}">
+            <input type="text" name="categoria" id="categoria"  required [(ngModel)]="categoriaValue">
             <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['categoria']?.invalid">
                 <small>La categoria es requerida</small>
             </div>
 
 
             <label for="area">Area</label>
-            <input type="text" name="area" id="area" ngModel required placeholder="{{recetaAEditar?.area}}">
+            <input type="text" name="area" id="area"  required [(ngModel)]="areaValue">
             <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['area']?.invalid">
                 <small>El area es requerida</small>
             </div>
@@ -37,13 +38,14 @@
 
         <div class="contenedor-preparacion">
             <label for="preparacion">Modo de preparación</label>
-            <textarea name="preparacion" id="preparacion" rows="50" ngModel required placeholder="{{recetaAEditar?.preparacion}}"></textarea>
+            <textarea name="preparacion" id="preparacion" rows="50"  required [(ngModel)]="preparacionValue"></textarea>
             <div *ngIf="formularioPrincipal.submitted && formularioPrincipal.controls['preparacion']?.invalid">
                 <small>El modo de preparación es requerido</small>
             </div>
 
             <div>
-                <input type="submit" value="Crear receta">
+                <input *ngIf="!recetaAEditar" type="submit" value="Crear receta">
+                <input *ngIf="recetaAEditar" type="submit" value="Editar receta">
             </div>
         </div>
     </form>
