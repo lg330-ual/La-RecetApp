@@ -1,1 +1,52 @@
 <app-header></app-header>
+
+<div class="valores-nutricionales-contenido">
+    <div class="informacion">
+        <h1>Valores nutricionales</h1>
+        <h2>¿Por qué es importante conocer el valor nutricional de los alimentos?</h2>
+        <p>El valor nutricional de un alimento nos brinda información sobre los nutrientes que este nos aporta. Es una
+            información cada vez más demandada por los consumidores, ya que la conciencia sobre la importancia de tener
+            una
+            alimentación sana y equilibrada es cada vez mayor.
+        </p>
+        <p>
+            El valor nutricional de un alimento, también conocido como valor nutritivo, determina el valor energético y la carga de nutrientes del mismo: grasas, hidratos de carbono, azúcares, proteínas, vitaminas y minerales, sal, etcétera.
+        </p>
+        <p>
+            Para tener una alimentación saludable es esencial evitar productos procesados o con una cantidad alta de grasas saturadas, azúcares refinados y sal. Conocer el valor nutricional de lo que comemos nos puede ayudar a saber qué alimentos son saludables y cuáles no.
+        </p>
+
+    </div>
+
+    <h3>Productos lácteos</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Gramos</th>
+                <th>Calorías</th>
+                <th>Proteínas</th>
+                <th>Carbohidratos</th>
+                <th>Fibra</th>
+                <th>Grasas</th>
+                <th>Grasas saturadas</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let alimento of valoresNutricionales">
+                <td>{{alimento.foodName}}</td>
+                <td>{{alimento.measure}}</td>
+                <td>{{alimento.grams}}</td>
+                <td>{{alimento.calories}}</td>
+                <td>{{alimento.protein}}</td>
+                <td>{{alimento.carb}}</td>
+                <td>{{alimento.fiber}}</td>
+                <td>{{alimento.fat}}</td>
+                <td>{{alimento.satFat}}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>

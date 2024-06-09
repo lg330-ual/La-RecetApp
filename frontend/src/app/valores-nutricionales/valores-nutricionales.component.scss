@@ -1,0 +1,42 @@
+.valores-nutricionales-contenido {
+    padding-left: 3em;
+    padding-top: 2em;
+    padding-right: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.informacion {
+    width: 70%;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 20px 2px;
+
+}
+
+h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+h2 {
+    color: #444444;
+    margin-bottom: 0;
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+p {
+    font-size: x-large;
+}
+
+table {
+    font-size: larger;
+    border-spacing: 2em;
+    margin-bottom: 4em;
+    
+}
