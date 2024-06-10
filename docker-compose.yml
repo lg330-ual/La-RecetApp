@@ -14,4 +14,11 @@ services:
       dockerfile: DB_Dockerfile
     volumes:
       - ./database:/var/lib/postgresql/data
-      
+  
+  frontend:
+    container_name: frontend
+    build: frontend
+    depends_on:
+      - backend
+    ports:
+      - 80:80
